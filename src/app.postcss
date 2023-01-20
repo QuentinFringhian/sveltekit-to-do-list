@@ -1,26 +1,15 @@
-@import 'global.postcss';
-
-$primary: #a18aff;
-$secondary: #f9f8fd;
-$background: #8e71ff;
-
-$todo-purple: #ca8bfe;
-$todo-blue: #3fd4f4;
-$todo-pink: #fd99af;
-$todo-grey: #717082;
-$todo-yellow: #fac608;
-
-$text-light: #fff;
-$text-dark: $todo-grey;
+@import 'styles/global.postcss';
+@import 'styles/variables.postcss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 html {
 	background: $background;
+	padding: 10px;
 }
 
 body {
-	background: $primary;
 	color: $text-dark;
 	font-size: 18px;
-	border: 10px solid $background;
-	border-radius: 24px;
+	font-family: 'Poppins';
+	font-weight: 500;
 }
