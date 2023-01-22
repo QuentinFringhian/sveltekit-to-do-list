@@ -18,7 +18,7 @@
 <main>
 	{#if data.session}
 		<p>Welcome, {data.session.user.email}</p>
-		<form action="/logout" method="POST" use:enhance={submitLogout}>
+		<form action="api/logout" method="POST" use:enhance={submitLogout}>
 			<button type="submit">Logout</button>
 		</form>
 	{:else}
