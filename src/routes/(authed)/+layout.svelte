@@ -1,10 +1,16 @@
 <script lang="ts">
-	import Menu from './Menu.svelte';
+	import { intrests } from '$lib/stores/intrestsStore';
+	import { onMount } from 'svelte';
+	import Menu from '../../components/dashboard/menu/Menu.svelte';
+
+	onMount(async () => {
+		intrests.init();
+	});
 </script>
 
 <div class="layout">
 	<div class="menu">
-		<Menu />
+		<Menu intrests={$intrests} />
 	</div>
 	<div class="content">
 		<slot />

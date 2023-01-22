@@ -1,8 +1,13 @@
 <script lang="ts">
+	import SettingIcon from '../../icons/SettingIcon.svelte';
+	import TodayIcon from '../../icons/TodayIcon.svelte';
+	import SchedulIcon from '../../icons/SchedulIcon.svelte';
 	import MenuItem from './MenuItem.svelte';
-	import SettingIcon from '../../components/icons/SettingIcon.svelte';
-	import TodayIcon from '../../components/icons/TodayIcon.svelte';
-	import SchedulIcon from '../../components/icons/SchedulIcon.svelte';
+	import AddIntrest from './intrest/AddIntrest.svelte';
+	import type { IntrestType } from '$lib/intrestType';
+	import Intrest from './intrest/Intrest.svelte';
+
+	export let intrests: IntrestType[];
 </script>
 
 <div class="menu">
@@ -10,10 +15,10 @@
 	<hr class="separator" />
 	<div class="roots">
 		<MenuItem title="Today tasks" icon={TodayIcon} active={true}>
-			<p>elem 1</p>
-			<p>elem 2</p>
-			<p>elem 3</p>
-			<p>elem 4</p>
+			{#each intrests as intrest}
+				<Intrest {intrest} />
+			{/each}
+			<AddIntrest />
 		</MenuItem>
 		<MenuItem title="Scheduled tasks" icon={SchedulIcon} active={false} />
 		<MenuItem title="Settings" icon={SettingIcon} active={false} />
@@ -21,7 +26,7 @@
 </div>
 
 <style lang="postcss">
-	@import '../../styles/variables.postcss';
+	@import '../../../styles/variables.postcss';
 
 	.menu {
 		height: 100%;
