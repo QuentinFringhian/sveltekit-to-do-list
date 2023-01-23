@@ -1,7 +1,7 @@
 <script lang="ts">
-	import SettingIcon from '../../icons/SettingIcon.svelte';
-	import TodayIcon from '../../icons/TodayIcon.svelte';
-	import SchedulIcon from '../../icons/SchedulIcon.svelte';
+	import SettingIcon from '../icons/SettingIcon.svelte';
+	import TodayIcon from '../icons/TodayIcon.svelte';
+	import SchedulIcon from '../icons/SchedulIcon.svelte';
 	import MenuItem from './MenuItem.svelte';
 	import AddIntrest from './intrest/AddIntrest.svelte';
 	import type { IntrestType } from '$lib/intrestType';
@@ -26,7 +26,7 @@
 </div>
 
 <style lang="postcss">
-	@import '../../../styles/variables.postcss';
+	@import '../../styles/variables.postcss';
 
 	.menu {
 		height: 100%;

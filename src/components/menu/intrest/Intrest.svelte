@@ -2,8 +2,8 @@
 	import type { IntrestType } from '$lib/intrestType';
 	import { intrests } from '$lib/stores/intrestsStore';
 	import { textfit } from 'svelte-textfit';
-	import DeleteIcon from '../../../icons/DeleteIcon.svelte';
-	import InPlaceEdit from '../../../tools/InPlaceEdit.svelte';
+	import DeleteIcon from '../../icons/DeleteIcon.svelte';
+	import InPlaceEdit from '../../tools/InPlaceEdit.svelte';
 
 	export let intrest: IntrestType;
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { intrests } from '$lib/stores/intrestsStore';
 	import { onMount } from 'svelte';
-	import Menu from '../../components/dashboard/menu/Menu.svelte';
+	import Menu from '../../components/menu/Menu.svelte';
 
 	onMount(async () => {
 		intrests.init();

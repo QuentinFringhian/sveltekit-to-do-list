@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { intrests } from '$lib/stores/intrestsStore';
-	import AddIntrestIcon from '../../../icons/AddIntrestIcon.svelte';
+	import AddIntrestIcon from '../../icons/AddIntrestIcon.svelte';
 
 	const addIntrest = async () => {
 		intrests.createIntrest('test', '#fd99af');
