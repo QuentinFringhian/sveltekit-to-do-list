@@ -18,13 +18,7 @@ export const PUT: RequestHandler = async ({ params, locals, request }) => {
 		console.error(err);
 		throw console.error(500, 'Could not update data.');
 	}
-	return new Response(
-		JSON.stringify({
-			id: data[0].id,
-			intrest: data[0].intrest,
-			color: data[0].color
-		})
-	);
+	return new Response(JSON.stringify(data[0]));
 };
 
 export const DELETE: RequestHandler = async ({ params, locals }) => {
@@ -41,5 +35,5 @@ export const DELETE: RequestHandler = async ({ params, locals }) => {
 		console.error(err);
 		throw console.error(500, 'Could not delete data.');
 	}
-	return new Response(JSON.stringify({ id: data[0].id }));
+	return new Response(JSON.stringify(data[0]));
 };

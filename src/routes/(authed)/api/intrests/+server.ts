@@ -31,11 +31,5 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 	if (err) {
 		throw console.error(500, 'Could not insert data.');
 	}
-	return new Response(
-		JSON.stringify({
-			id: data[0].id,
-			intrest: data[0].intrest,
-			color: data[0].color
-		})
-	);
+	return new Response(JSON.stringify(data[0]));
 };
