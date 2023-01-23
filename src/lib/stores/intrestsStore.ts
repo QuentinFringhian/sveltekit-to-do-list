@@ -1,7 +1,7 @@
 import type { IntrestType } from '$lib/intrestType';
 import { writable } from 'svelte/store';
 
-export function createIntrestsStore() {
+function createIntrestsStore() {
 	const { subscribe, set, update } = writable<IntrestType[]>([]);
 
 	return {
@@ -25,18 +25,18 @@ export function createIntrestsStore() {
 			const newIntrest: IntrestType = JSON.parse(await res.text());
 			update((intrests) => [...intrests, newIntrest]);
 		},
-		editIntrest: async (id: number, name: string, color: string) => {
-			const res = await fetch(`api/intrests/${id}`, {
+		editIntrest: async (intrestToUpdate: IntrestType) => {
+			const res = await fetch(`api/intrests/${intrestToUpdate.id}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ name, color })
+				body: JSON.stringify({ intrest: intrestToUpdate })
 			});
 			if (res.status !== 200) {
 				throw console.error(500, 'Could not edit intrest.');
 			}
 			const updatedIntrest: IntrestType = JSON.parse(await res.text());
 			update((intrests) => {
-				const index = intrests.findIndex((intrest) => intrest.id === id);
+				const index = intrests.findIndex((intrest) => intrest.id === intrestToUpdate.id);
 				intrests[index] = updatedIntrest;
 				return intrests;
 			});

@@ -4,14 +4,13 @@ export const PUT: RequestHandler = async ({ params, locals, request }) => {
 	if (!locals.session?.user) {
 		throw console.error(401, 'Unauthorized.');
 	}
-	const { name, color } = await request.json();
-	if (!name || !color) {
+	const { intrest } = await request.json();
+	if (!intrest) {
 		throw console.error(400, 'Missing data.');
 	}
-	console.log(params);
 	const { data, error: err } = await locals.sb
 		.from('intrests')
-		.update({ intrest: name, color: color })
+		.update({ intrest: intrest.intrest, color: intrest.color })
 		.eq('id', (params as { id: string }).id)
 		.select();
 	if (err) {

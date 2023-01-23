@@ -15,7 +15,7 @@
 
 	const patchIntrestName = async (e: any) => {
 		if (e.details == intrest.intrest || !intrest.id) return;
-		intrests.editIntrest(intrest.id, e.detail, intrest.color);
+		intrests.editIntrest({ ...intrest, intrest: e.detail });
 	};
 
 	const deleteIntrest = async () => {
