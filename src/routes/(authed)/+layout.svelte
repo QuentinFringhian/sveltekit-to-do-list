@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { intrests } from '$lib/stores/intrestsStore';
+	import { todos } from '$lib/stores/todosStore';
 	import { onMount } from 'svelte';
 	import Menu from '../../components/menu/Menu.svelte';
 
 	onMount(async () => {
 		intrests.init();
+		todos.init();
 	});
 </script>
 
 <div class="layout">
 	<div class="menu">
-		<Menu intrests={$intrests} />
+		<Menu />
 	</div>
 	<div class="content">
 		<slot />

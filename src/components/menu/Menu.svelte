@@ -4,10 +4,8 @@
 	import SchedulIcon from '../icons/SchedulIcon.svelte';
 	import MenuItem from './MenuItem.svelte';
 	import AddIntrest from '../intrest/AddIntrest.svelte';
-	import type { IntrestType } from '$lib/intrestType';
 	import Intrest from '../intrest/Intrest.svelte';
-
-	export let intrests: IntrestType[];
+	import { intrests } from '$lib/stores/intrestsStore';
 </script>
 
 <div class="menu">
@@ -15,7 +13,7 @@
 	<hr class="separator" />
 	<div class="roots">
 		<MenuItem title="Today tasks" icon={TodayIcon} active={true}>
-			{#each intrests as intrest}
+			{#each $intrests as intrest}
 				<Intrest {intrest} />
 			{/each}
 			<AddIntrest />
