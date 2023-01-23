@@ -3,9 +3,9 @@
 	import TodayIcon from '../icons/TodayIcon.svelte';
 	import SchedulIcon from '../icons/SchedulIcon.svelte';
 	import MenuItem from './MenuItem.svelte';
-	import AddIntrest from './intrest/AddIntrest.svelte';
+	import AddIntrest from '../intrest/AddIntrest.svelte';
 	import type { IntrestType } from '$lib/intrestType';
-	import Intrest from './intrest/Intrest.svelte';
+	import Intrest from '../intrest/Intrest.svelte';
 
 	export let intrests: IntrestType[];
 </script>
