@@ -7,7 +7,8 @@ export const GET: RequestHandler = async ({ locals }) => {
 	const { data: intrests, error: err } = await locals.sb
 		.from('intrests')
 		.select('id, intrest, color')
-		.order('id', { ascending: true });
+		.order('id', { ascending: true })
+		.eq('user_id', locals.session?.user.id);
 
 	if (err) {
 		throw console.error(500, 'Could not fetch data.');

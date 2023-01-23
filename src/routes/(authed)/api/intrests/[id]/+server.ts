@@ -12,6 +12,7 @@ export const PUT: RequestHandler = async ({ params, locals, request }) => {
 		.from('intrests')
 		.update({ intrest: intrest.intrest, color: intrest.color })
 		.eq('id', (params as { id: string }).id)
+		.eq('user_id', locals.session?.user.id)
 		.select();
 	if (err) {
 		console.error(err);
@@ -34,6 +35,7 @@ export const DELETE: RequestHandler = async ({ params, locals }) => {
 		.from('intrests')
 		.delete()
 		.eq('id', (params as { id: string }).id)
+		.eq('user_id', locals.session?.user.id)
 		.select();
 	if (err) {
 		console.error(err);
